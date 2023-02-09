@@ -1,0 +1,3 @@
+# values.yaml file for app2
+image: node:14-alpine
+replicas: 2
