@@ -22,9 +22,10 @@ spec:
       targetRevision: HEAD
       destination:
   server: https://kubernetes.default.svc
-  namespace: default
+  namespace: prev-test
       syncOptions:
-        - {}
+    - Validate=true
+    - CreateNamespace=true
   apps:
   - name: app1
     values:
