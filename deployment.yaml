@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: my-app-set
-  namespace: my-namespace
+  namespace: default
 spec:
   selector:
     matchLabels:
@@ -17,11 +17,12 @@ spec:
     spec:
       source:
         path: environment-values/{{.Values.valuesFile}}
-        repository: https://github.com/my-git-repo.git
+        repository: https://github.com/ojp2/prev-test.git
       project: default
       targetRevision: HEAD
-      destination:
-        namespace: my-namespace
+      destination
+        cluster: https://kubernetes.default.svc
+        namespace: default
       syncOptions:
         - {}
   apps:
