@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: my-app-set
+  namespace: my-namespace
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: my-app-set
+  targetNamespace: my-namespace
+  syncPolicy:
+    automated: {}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: my-app-set
+    spec:
+      source:
+        path: environment-values/{{.Values.valuesFile}}
+        repository: https://github.com/my-git-repo.git
+      project: default
+      targetRevision: HEAD
+      destination:
+        namespace: my-namespace
+      syncOptions:
+        - {}
+  apps:
+  - name: app1
+    values:
+      valuesFile: app1-values.yaml
+  - name: app2
+    values:
+      valuesFile: app2-values.yaml
+  - ...
