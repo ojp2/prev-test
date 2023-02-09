@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/instance: my-app-set
-  targetNamespace: my-namespace
+  targetNamespace: default
   syncPolicy:
     automated: {}
   template:
