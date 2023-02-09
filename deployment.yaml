@@ -20,9 +20,9 @@ spec:
         repository: https://github.com/ojp2/prev-test.git
       project: default
       targetRevision: HEAD
-      destination
-        cluster: https://kubernetes.default.svc
-        namespace: default
+      destination:
+  server: https://kubernetes.default.svc
+  namespace: default
       syncOptions:
         - {}
   apps:
