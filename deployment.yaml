@@ -23,7 +23,7 @@ spec:
       destination:
   server: https://kubernetes.default.svc
   namespace: prev-test
-      syncOptions:
+  syncOptions:
     - Validate=true
     - CreateNamespace=true
   apps:
